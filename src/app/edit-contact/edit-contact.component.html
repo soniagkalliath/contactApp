@@ -1,0 +1,76 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col">
+            <p class="h3 fw-bold text-dark">
+                <i class="fa fa-pen"></i>
+                Edit Contact Page
+            </p>
+            <p style="text-align:justify;">
+                This is Dummy Data: Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Quia accusantium necessitatibus molestias, eaque deserunt, sequi
+                expedita adipisci mollitia, dolore possimus architecto natus ad a
+                consequuntur porro facere? Odio, est distinctio.Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Quia accusantium necessitatibus molestias, eaque deserunt, sequi
+                expedita adipisci mollitia, dolore possimus architecto natus ad a
+                consequuntur porro facere? Odio, est distinctio.
+              </p>
+        </div>
+    </div>
+</div>
+<div class="mt-5 w-100 text-center" *ngIf="isLoading ">
+    <app-spinners></app-spinners>
+    <p>New contact details are adding to our database..</p>
+  </div>
+  <div class="mt-5 text-center" >
+    <div class="h4 text-danger"> {{eMsg}} </div>
+  </div>
+
+<!--edit contact form -->
+<div class="container" *ngIf="!isLoading ">
+    <div class="row">
+        <div class="col-sm-4">
+            <form (ngSubmit)="updateContact()" >
+                <div class="mb-2">
+                    <input [(ngModel)]="contact.name" name="name" [value]="contact.name" placeholder="Name" type="text" class="form-control">
+                </div>
+
+                <div class="mb-2">
+                    <input [(ngModel)]="contact.photo" name="photo" [value]="contact.photo" placeholder="Photo URL" type="text" class="form-control">
+                </div>
+
+                <div class="mb-2">
+                    <input [(ngModel)]="contact.email" name="email" [value]="contact.email" placeholder="E-mail ID" type="text" class="form-control">
+                </div>
+
+                <div class="mb-2">
+                    <input [(ngModel)]="contact.mobile" name="mobile" [value]="contact.mobile" placeholder="Mobile Number" type="number" class="form-control">
+                </div>
+
+                <div class="mb-2">
+                    <input [(ngModel)]="contact.company" name="company" [value]="contact.company" placeholder="Company" type="text" class="form-control">
+                </div>
+
+                <div class="mb-2">
+                    <input [(ngModel)]="contact.title" name="title" [value]="contact.title" placeholder="Title" type="text" class="form-control">
+                </div>
+
+                <div class="mb-2">
+                    <select [(ngModel)]="contact.groupId" name="groupId" class="form-control" name="" id="">
+                        <option value="" selected hidden disabled>Select A Group</option>
+                        <option [value]="group.id" *ngFor="let group of groups">
+                            {{group.name}}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="mb-2">
+                    <input type="submit" class="btn btn-primary" value="Update">
+                    <a routerLink="/" class="btn btn-warning ms-3">Close</a>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-4">
+            <img class="contact_image" [src]="contact.photo" alt="no image">
+        </div>
+    </div>
+</div>

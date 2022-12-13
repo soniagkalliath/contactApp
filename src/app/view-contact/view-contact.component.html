@@ -1,0 +1,67 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col">
+      <p class="h3 fw-bold text-dark">
+        <i class="fa fa-eye"></i>
+        View Contact Page
+      </p>
+      <p style="text-align: justify">
+        This is Dummy Data: Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Quia accusantium necessitatibus molestias, eaque deserunt, sequi
+        expedita adipisci mollitia, dolore possimus architecto natus ad a
+        consequuntur porro facere? Odio, est distinctio.Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Quia accusantium necessitatibus
+        molestias, eaque deserunt, sequi expedita adipisci mollitia, dolore
+        possimus architecto natus ad a consequuntur porro facere? Odio, est
+        distinctio.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="mt-5 w-100 text-center" *ngIf="isLoading ">
+  <app-spinners></app-spinners>
+</div>
+<div class="mt-5 text-center" >
+  <div class="h4 text-danger"> {{errorMsg}} </div>
+</div>
+
+<!-- view contact details -->
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-sm-4">
+      <img width="250px" height="250px"
+        
+        [src]="contactDetails.photo"
+        alt="no image"
+      />
+    </div>
+    <div class="col-sm-6">
+      <!-- contact detail -->
+      <ul class="list-group">
+        <li class="list-group-item">Name: <span class="fw-bold">{{contactDetails.name}}</span></li>
+        <li class="list-group-item">
+          Email: <span class="fw-bold">{{contactDetails.email}}</span>
+        </li>
+        <li class="list-group-item">
+          Mobile: <span class="fw-bold">{{contactDetails.mobile}}</span>
+        </li>
+        <li class="list-group-item">
+          Company: <span class="fw-bold">{{contactDetails.company}}</span>
+        </li>
+        <li class="list-group-item">Title: <span class="fw-bold">{{contactDetails.title}}</span></li>
+        <li class="list-group-item">
+          Group: <span class="fw-bold">{{groupName}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row align-items-center ms-4 mt-2">
+    <div class="col">
+        <a routerLink="/" class="btn btn-warning">
+            <i class="fa-regular fa-circle-left"></i>
+            Go Back</a>
+    </div>
+  </div>
+</div>
